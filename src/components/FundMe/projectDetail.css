@@ -1,0 +1,108 @@
+.container {
+  margin-top: 100px;
+  }
+  
+  h3 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  }
+  
+  .project-idea-image {
+  width: 100%;
+  border-radius: 5px;
+  }
+  
+  .project-idea-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  }
+  
+  .project-idea-description {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  }
+  
+  .project-idea-stats {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  }
+  
+  .project-idea-stats p {
+  margin-bottom: 0.5rem;
+  }
+  
+  .payment_image {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 5px;
+  }
+  
+  .my-3 {
+  margin: 1.5rem 0;
+  }
+  
+  /* Styling for donation form */
+  .form-group {
+  margin-bottom: 1.5rem;
+  }
+  
+  .form-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  }
+  
+  .form-control {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+  font-size: 1.2rem;
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.75rem 1.5rem;
+  background-color: #4CAF50;
+  border: none;
+  margin-top: 1rem;
+  }
+  
+  button[type="submit"]:hover {
+  background-color: rgb(1, 78, 1);
+  border-color: #4CAF50;
+  border-radius: 5px;
+  }
+  
+  .error-message {
+  color: #dc3545;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  }
+  
+  .loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  }
+  
+  @media only screen and (max-width: 576px) {
+  .project-idea-image {
+  height: auto;
+  }
+  
+  .payment_image {
+  height: auto;
+  }
+  }
+
+.tabletitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #474947;
+    margin-bottom: 16px;
+    margin-top: 20px;
+  }

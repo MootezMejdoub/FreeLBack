@@ -1,0 +1,22 @@
+
+
+.card:hover { box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+
+.btn { display: inline-block; }
+
+.sticky-col {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 120px;
+  height: calc(100vh - 120px);
+}
+
+.sticky-col .component-container {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 992px) {
+  .sticky-col {
+    height: calc(100vh - 160px);
+  }
+}

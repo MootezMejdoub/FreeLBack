@@ -1,0 +1,24 @@
+
+.top-projects-container{
+  position: fixed;
+  /* or any other value to adjust the distance from the top of the screen */
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }

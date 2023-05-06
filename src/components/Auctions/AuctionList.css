@@ -1,0 +1,95 @@
+.card {
+    height: 100%;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-img-top {
+    max-height: 100%;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+  }
+  
+  .progress {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card-link {
+    margin-top: 1rem;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+ .container{
+    margin-top: 150px;
+ }
+ h1 {
+    margin-bottom: 0.1rem;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+ h2 {
+    
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+ h3 {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card {
+    height: auto;
+    width: 18rem;
+    margin: 0.5rem;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .card {
+      width: calc(100% - 2rem);
+    }
+  }
+  
+  .CardActions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .CardActions button:first-child {
+    margin-right: auto;
+  }
+  
+  .CardActions button:last-child {
+    margin-left: auto;
+  }
+  
+  .container {
+    margin-top: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .container {
+      justify-content: center;
+    }
+  }
