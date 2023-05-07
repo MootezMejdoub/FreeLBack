@@ -208,172 +208,170 @@ const VisitDetails = () => {
 
   return (
     <>
-      <section>
-        <Container>
-          <Row>
-            <Col lg="8">
-              <div className="visit__content">
-                <img
-                  className="imgFarm"
-                  src={`/images/${visit.photo}.jpg`}
-                  alt="tour-img"
-                />
-                <div className="visit__info">
-                  <h2>{visit.title}</h2>
-                  <div className="d-flex align-items-center gap-5">
-                    <span className="tour__rating d-flex align-items-center gap-1">
-                      <img src={iconRating} />
-                      {avgRating === 0 ? null : avgRating}
-                      {totalRating === 0 ? (
-                        "Not rated"
+      <Container>
+        <Row>
+          <Col lg="6">
+            <div className="visit__content">
+              <img
+                className="imgFarm"
+                src={`/images/${visit.photo}.jpg`}
+                alt="tour-img"
+              />
+              <div className="visit__info">
+                <h2>{visit.title}</h2>
+                <div className="d-flex align-items-center gap-5">
+                  <span className="tour__rating d-flex align-items-center gap-1">
+                    <img src={iconRating} />
+                    {avgRating === 0 ? null : avgRating}
+                    {totalRating === 0 ? (
+                      "Not rated"
+                    ) : (
+                      <span>({visit.reviews?.length})</span>
+                    )}
+                  </span>
+                  <span>
+                    <img src={iconLocalisation} style={{ color: "green" }} />
+                    {visit.address}
+                  </span>
+                </div>
+                <div className="visit__extra-details">
+                  <span>
+                    <img src={iconCity} style={{ color: "green" }} />
+                    {visit.city}
+                  </span>
+                  <span>
+                    <img src={iconDollar} style={{ color: "green" }} />$
+                    {visit.price}/Per person
+                  </span>
+                  <span>
+                    <img src={iconPer} style={{ color: "green" }} />
+                    {visit.maxGroupSize} people
+                  </span>
+                </div>
+                <h5>Desciption</h5>
+                <p>{visit.desc}</p>
+              </div>
+              <div className="visit__reviews mt-4">
+                <h4>Reviews({visit.reviews?.length} reviews)</h4>
+                <Form onSubmit={submitHandler}>
+                  <div className="d-flex align-items-center gap-3 mb-4 rating__group">
+                    <span
+                      onClick={() => setVisitRating(1)}
+                      className={visitRating >= 1 ? "selected" : ""}
+                    >
+                      {visitRating >= 1 ? (
+                        <img src={iconRatingSelected} alt="" />
                       ) : (
-                        <span>({visit.reviews?.length})</span>
+                        <img src={iconRating} alt="" />
                       )}
                     </span>
-                    <span>
-                      <img src={iconLocalisation} style={{ color: "green" }} />
-                      {visit.address}
+                    <span
+                      onClick={() => setVisitRating(2)}
+                      className={visitRating >= 2 ? "selected" : ""}
+                    >
+                      {visitRating >= 2 ? (
+                        <img src={iconRatingSelected} alt="" />
+                      ) : (
+                        <img src={iconRating} alt="" />
+                      )}
+                    </span>
+                    <span
+                      onClick={() => setVisitRating(3)}
+                      className={visitRating >= 3 ? "selected" : ""}
+                    >
+                      {visitRating >= 3 ? (
+                        <img src={iconRatingSelected} alt="" />
+                      ) : (
+                        <img src={iconRating} alt="" />
+                      )}
+                    </span>
+                    <span
+                      onClick={() => setVisitRating(4)}
+                      className={visitRating >= 4 ? "selected" : ""}
+                    >
+                      {visitRating >= 4 ? (
+                        <img src={iconRatingSelected} alt="" />
+                      ) : (
+                        <img src={iconRating} alt="" />
+                      )}
+                    </span>
+                    <span
+                      onClick={() => setVisitRating(5)}
+                      className={visitRating >= 5 ? "selected" : ""}
+                    >
+                      {visitRating >= 5 ? (
+                        <img src={iconRatingSelected} alt="" />
+                      ) : (
+                        <img src={iconRating} alt="" />
+                      )}
                     </span>
                   </div>
-                  <div className="visit__extra-details">
-                    <span>
-                      <img src={iconCity} style={{ color: "green" }} />
-                      {visit.city}
-                    </span>
-                    <span>
-                      <img src={iconDollar} style={{ color: "green" }} />$
-                      {visit.price}/Per person
-                    </span>
-                    <span>
-                      <img src={iconPer} style={{ color: "green" }} />
-                      {visit.maxGroupSize} people
-                    </span>
-                  </div>
-                  <h5>Desciption</h5>
-                  <p>{visit.desc}</p>
-                </div>
-                <div className="visit__reviews mt-4">
-                  <h4>Reviews({visit.reviews?.length} reviews)</h4>
-                  <Form onSubmit={submitHandler}>
-                    <div className="d-flex align-items-center gap-3 mb-4 rating__group">
-                      <span
-                        onClick={() => setVisitRating(1)}
-                        className={visitRating >= 1 ? "selected" : ""}
-                      >
-                        {visitRating >= 1 ? (
-                          <img src={iconRatingSelected} alt="" />
-                        ) : (
-                          <img src={iconRating} alt="" />
-                        )}
-                      </span>
-                      <span
-                        onClick={() => setVisitRating(2)}
-                        className={visitRating >= 2 ? "selected" : ""}
-                      >
-                        {visitRating >= 2 ? (
-                          <img src={iconRatingSelected} alt="" />
-                        ) : (
-                          <img src={iconRating} alt="" />
-                        )}
-                      </span>
-                      <span
-                        onClick={() => setVisitRating(3)}
-                        className={visitRating >= 3 ? "selected" : ""}
-                      >
-                        {visitRating >= 3 ? (
-                          <img src={iconRatingSelected} alt="" />
-                        ) : (
-                          <img src={iconRating} alt="" />
-                        )}
-                      </span>
-                      <span
-                        onClick={() => setVisitRating(4)}
-                        className={visitRating >= 4 ? "selected" : ""}
-                      >
-                        {visitRating >= 4 ? (
-                          <img src={iconRatingSelected} alt="" />
-                        ) : (
-                          <img src={iconRating} alt="" />
-                        )}
-                      </span>
-                      <span
-                        onClick={() => setVisitRating(5)}
-                        className={visitRating >= 5 ? "selected" : ""}
-                      >
-                        {visitRating >= 5 ? (
-                          <img src={iconRatingSelected} alt="" />
-                        ) : (
-                          <img src={iconRating} alt="" />
-                        )}
-                      </span>
-                    </div>
 
-                    <div className="review__input">
-                      <input
-                        type="text"
-                        ref={reviewMsgRef}
-                        placeholder="Share your thoughts"
-                        required
-                      />
-                      <button
-                        className="btn btn-success text-white "
-                        type="submit"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </Form>
-                  <ListGroup className="user__reviews">
-                    {reviews?.map((review) => (
-                      <div className="review__item mb-5">
-                        <img className="imgAvatar" src={avatar} alt="" />
-                        <div className="w-100">
-                          <div className="d-flex align-items-center justify-content-between">
-                            <div>
-                              <h5>{review?.username}</h5>
-                              <p>
-                                {new Date(review?.createdAt).toLocaleDateString(
-                                  "en-US",
-                                  options
-                                )}
-                              </p>
-                            </div>
-                            <span className="d-flex align-items-center">
-                              {review?.rating}
-                              <img src={iconRating} />
-                            </span>
+                  <div className="review__input">
+                    <input
+                      type="text"
+                      ref={reviewMsgRef}
+                      placeholder="Share your thoughts"
+                      required
+                    />
+                    <button
+                      className="btn btn-success text-white "
+                      type="submit"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </Form>
+                <ListGroup className="user__reviews">
+                  {reviews?.map((review) => (
+                    <div className="review__item mb-5">
+                      <img className="imgAvatar" src={avatar} alt="" />
+                      <div className="w-100">
+                        <div className="d-flex align-items-center justify-content-between">
+                          <div>
+                            <h5>{review?.username}</h5>
+                            <p>
+                              {new Date(review?.createdAt).toLocaleDateString(
+                                "en-US",
+                                options
+                              )}
+                            </p>
                           </div>
-                          <h6>{review?.reviewText}</h6>
-                          {review?.username === userLogin.user?.name ? (
-                            <div className="flex ">
-                              <a
-                                href="#"
-                                onClick={() => handleEdit(review)}
-                                style={{ marginRight: "20px" }}
-                              >
-                                <img src={iconEdit} alt="edit" />
-                              </a>
-                              <a
-                                href="#"
-                                onClick={() => handleDelete(review._id)}
-                              >
-                                <img src={iconDelete} alt="delete" />
-                              </a>
-                            </div>
-                          ) : null}
+                          <span className="d-flex align-items-center">
+                            {review?.rating}
+                            <img src={iconRating} />
+                          </span>
                         </div>
+                        <h6>{review?.reviewText}</h6>
+                        {review?.username === userLogin.user?.name ? (
+                          <div className="flex ">
+                            <a
+                              href="#"
+                              onClick={() => handleEdit(review)}
+                              style={{ marginRight: "20px" }}
+                            >
+                              <img src={iconEdit} alt="edit" />
+                            </a>
+                            <a
+                              href="#"
+                              onClick={() => handleDelete(review._id)}
+                            >
+                              <img src={iconDelete} alt="delete" />
+                            </a>
+                          </div>
+                        ) : null}
                       </div>
-                    ))}
-                  </ListGroup>
-                </div>
+                    </div>
+                  ))}
+                </ListGroup>
               </div>
-            </Col>
-            <Col lg="4">
-              <Booking visit={visit} avgRating={avgRating} />
-            </Col>
-          </Row>
-        </Container>
-      </section>
+            </div>
+          </Col>
+          <Col lg="6">
+            <Booking visit={visit} avgRating={avgRating} />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

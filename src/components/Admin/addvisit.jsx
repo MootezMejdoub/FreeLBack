@@ -5,6 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "./add.css";
+import MetaData from "../Layouts/MetaData";
+import Sidebar from "./Sidebar/Sidebar";
 
 function AddVisit() {
   const [title, setTitle] = useState("");
@@ -158,136 +160,151 @@ function AddVisit() {
   };
 
   return (
-    <Container>
-      {/* <h2 style={{textalign:"center",marginTop:"100px"}}> Add Visit</h2> */}
-      <Form onSubmit={handleSubmit}>
-        <Row>
-          <Form.Group controlId="title" className="col-md-6">
-            <Form.Label>Title </Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter your visit title"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-              // isInvalid={!!titleError}
-              isValid={!titleError && title.length > 0}
-              isInvalid={titleError}
-            />
-            <Form.Control.Feedback type="invalid">
-              {titleError}
-            </Form.Control.Feedback>
-          </Form.Group>
+    <>
+      <main className="flex min-h-screen mt-14 sm:min-w-full">
+        <Sidebar />
 
-          <Form.Group controlId="city" className="col-md-6">
-            <Form.Label className="ml-20">City</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter city "
-              value={city}
-              onChange={(event) => setCity(event.target.value)}
-              isInvalid={!!cityError}
-            />
-            <Form.Control.Feedback type="invalid">
-              {cityError}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group controlId="address" className="col-md-6">
-            <Form.Label>Address</Form.Label>
-            <Form.Control
-              as="textarea"
-              placeholder="Enter address "
-              value={address}
-              onChange={(event) => setAddress(event.target.value)}
-              isInvalid={!!addressError}
-            />
-            <Form.Control.Feedback type="invalid">
-              {addressError}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="distance" className="col-md-6">
-            <Form.Label>Distance</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter distance "
-              value={distance}
-              onChange={(event) => setDistance(event.target.value)}
-              isInvalid={!!distanceError}
-            />
-            <Form.Control.Feedback type="invalid">
-              {distanceError}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group controlId="photo" className="col-md-6">
-            <Form.Label>Image</Form.Label>
-            <Form.Control />
-            <input
-              as="file "
-              placeholder="Enter image "
-              type="file"
-              value={photo}
-              onChange={(event) => setPhoto(event.target.value)}
-              //onChange={uploadFileHandler}
-              isInvalid={!!photoError}
-            />
+        <Container>
+          <Form onSubmit={handleSubmit} style={{ marginLeft: 200 }}>
+            <h2 style={{ textalign: "center", marginTop: "10px" }}>
+              ADD VISIT
+            </h2>
+            <Row>
+              <Form.Group controlId="title" className="col-md-6 ">
+                <Form.Label>Title </Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your visit title"
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                  // isInvalid={!!titleError}
+                  isValid={!titleError && title.length > 0}
+                  isInvalid={titleError}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {titleError}
+                </Form.Control.Feedback>
+              </Form.Group>
 
-            <Form.Control.Feedback type="invalid">
-              {photoError}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="desc" className="col-md-6">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              as="textarea"
-              placeholder="Enter desc "
-              value={desc}
-              onChange={(event) => setDesc(event.target.value)}
-              isInvalid={!!descError}
-            />
-            <Form.Control.Feedback type="invalid">
-              {descError}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group controlId="price" className="col-md-6">
-            <Form.Label>Price</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter price "
-              value={price}
-              onChange={(event) => setPrice(event.target.value)}
-              isInvalid={!!priceError}
-            />
-            <Form.Control.Feedback type="invalid">
-              {priceError}
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="maxGroupSize" className="col-md-6">
-            <Form.Label>MaxGroupSize</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter maxGroupSize "
-              value={maxGroupSize}
-              onChange={(event) => setMaxGroupSize(event.target.value)}
-              isInvalid={!!maxGroupSizeError}
-            />
-            <Form.Control.Feedback type="invalid">
-              {maxGroupSizeError}
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-        <Button variant="contained" color="secondary" onClick={handleCancel}>
-          Cancel
-        </Button>
-      </Form>
-    </Container>
+              <Form.Group controlId="city" className="col-md-6">
+                <Form.Label className="ml-20">City</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter city "
+                  value={city}
+                  onChange={(event) => setCity(event.target.value)}
+                  isInvalid={!!cityError}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {cityError}
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+            <Row>
+              <Form.Group controlId="address" className="col-md-6">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  placeholder="Enter address "
+                  value={address}
+                  onChange={(event) => setAddress(event.target.value)}
+                  isInvalid={!!addressError}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {addressError}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="distance" className="col-md-6">
+                <Form.Label>Distance</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter distance "
+                  value={distance}
+                  onChange={(event) => setDistance(event.target.value)}
+                  isInvalid={!!distanceError}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {distanceError}
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+            <Row>
+              <Form.Group controlId="photo" className="col-md-6">
+                <Form.Label>Image</Form.Label>
+                <Form.Control />
+                <input
+                  as="file "
+                  placeholder="Enter image "
+                  type="file"
+                  value={photo}
+                  onChange={(event) => setPhoto(event.target.value)}
+                  //onChange={uploadFileHandler}
+                  isInvalid={!!photoError}
+                />
+
+                <Form.Control.Feedback type="invalid">
+                  {photoError}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="desc" className="col-md-6">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  placeholder="Enter desc "
+                  value={desc}
+                  onChange={(event) => setDesc(event.target.value)}
+                  isInvalid={!!descError}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {descError}
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+            <Row>
+              <Form.Group controlId="price" className="col-md-6">
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter price "
+                  value={price}
+                  onChange={(event) => setPrice(event.target.value)}
+                  isInvalid={!!priceError}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {priceError}
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="maxGroupSize" className="col-md-6">
+                <Form.Label>MaxGroupSize</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter maxGroupSize "
+                  value={maxGroupSize}
+                  onChange={(event) => setMaxGroupSize(event.target.value)}
+                  isInvalid={!!maxGroupSizeError}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {maxGroupSizeError}
+                </Form.Control.Feedback>
+              </Form.Group>
+            </Row>
+
+            <div className="flex mt-5" style={{ marginLeft: 150 }}>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handleCancel}
+              >
+                Cancel
+              </Button>
+            </div>
+          </Form>
+        </Container>
+      </main>
+    </>
   );
 }
 

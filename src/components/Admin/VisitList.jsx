@@ -14,7 +14,7 @@ import iconeReject from "../../assets/Iconn/chat-delete-fill.png";
 import iconeConfirm from "../../assets/Iconn/add-box-fill.png";
 import iconeDelete from "../../assets/Iconn/delete-bin-5-fill.png";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { PaginationItem, PaginationLink } from "reactstrap";
@@ -176,21 +176,14 @@ const VisitList = ({ navigate }) => {
   return (
     <div>
       <LinkContainer style={{ float: "right" }} to="/admin/visite/addvisit">
-        <Button className="mr-3 mb-3">ADD Visit</Button>
+        <Button className="mr-3">ADD Visit</Button>
       </LinkContainer>
-      <Container>
-        <Form.Group>
-          <Form.Label>Search field</Form.Label>
-          <Form.Control
-            id="standard-search"
-            type="search"
-            value={searchText}
-            onChange={handleSearchChange}
-            className={classNames.searchField}
-          />
-        </Form.Group>
 
-        <Table striped bordered hover responsive className="table-sm">
+      <Table striped bordered hover responsive className="table-sm ml-5">
+        <div
+          className="bg-white rounded-xl shadow-lg w-full "
+          style={{ height: 270 }}
+        >
           <thead>
             <tr>
               <th>TITLE</th>
@@ -240,7 +233,7 @@ const VisitList = ({ navigate }) => {
                 {/* <td>{visit.featured}</td> */}
                 <td>
                   <div className="d-flex mr-5">
-                    <LinkContainer to={`/admin/visite/${visit._id}/editvisit`}>
+                    <Link to={`/admin/visite/${visit._id}/editvisit`}>
                       <img
                         src={iconeEdit}
                         style={{
@@ -250,7 +243,7 @@ const VisitList = ({ navigate }) => {
                           color: "blue",
                         }}
                       />
-                    </LinkContainer>
+                    </Link>
                     <img
                       src={iconeDelete}
                       onClick={() => deleteVisit(visit._id)}
@@ -341,38 +334,38 @@ const VisitList = ({ navigate }) => {
               </tr>
             ))}
           </tbody>
-        </Table>
-        <Pagination
-          className="pagination justify-content-end mb-0"
-          listClassName="justify-content-end mb-0"
-        >
-          <PaginationItem disabled={currentPage === 1}>
-            <PaginationLink
-              onClick={() => handlePageClick(currentPage - 1)}
-              tabIndex="-1"
-            >
-              <i className="fas fa-angle-left" />
-              <span className="sr-only">Previous</span>
+        </div>
+      </Table>
+      <Pagination
+        className="pagination justify-content-end mb-0"
+        listClassName="justify-content-end mb-0"
+      >
+        <PaginationItem disabled={currentPage === 1}>
+          <PaginationLink
+            onClick={() => handlePageClick(currentPage - 1)}
+            tabIndex="-1"
+          >
+            <i className="fas fa-angle-left" />
+            <span className="sr-only">Previous</span>
+          </PaginationLink>
+        </PaginationItem>
+        {pages.map((page) => (
+          <PaginationItem key={page} active={currentPage === page}>
+            <PaginationLink onClick={() => handlePageClick(page)}>
+              {page}
             </PaginationLink>
           </PaginationItem>
-          {pages.map((page) => (
-            <PaginationItem key={page} active={currentPage === page}>
-              <PaginationLink onClick={() => handlePageClick(page)}>
-                {page}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
-          <PaginationItem disabled={currentPage === pageCount1}>
-            <PaginationLink
-              onClick={() => handlePageClick(currentPage + 1)}
-              tabIndex="-1"
-            >
-              <i className="fas fa-angle-right" />
-              <span className="sr-only">Next</span>
-            </PaginationLink>
-          </PaginationItem>
-        </Pagination>
-      </Container>
+        ))}
+        <PaginationItem disabled={currentPage === pageCount1}>
+          <PaginationLink
+            onClick={() => handlePageClick(currentPage + 1)}
+            tabIndex="-1"
+          >
+            <i className="fas fa-angle-right" />
+            <span className="sr-only">Next</span>
+          </PaginationLink>
+        </PaginationItem>
+      </Pagination>
     </div>
   );
 };

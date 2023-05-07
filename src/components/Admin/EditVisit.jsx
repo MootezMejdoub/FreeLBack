@@ -7,6 +7,7 @@ import "./edit.css";
 // reactstrap components
 
 import { Form, Button, Container, Row } from "react-bootstrap";
+import Sidebar from "./Sidebar/Sidebar";
 
 function EditVisit({ visit }) {
   // const [title, setTitle] = useState(visit?.title);
@@ -178,100 +179,115 @@ function EditVisit({ visit }) {
   };
 
   return (
-    <Container>
-      {/* <h2 style={{textalign:"center",marginTop:"100px"}}></h2> */}
-      <Form onSubmit={handleSubmit}>
-        <Row>
-          <Form.Group controlId="title" className="col-md-6">
-            <Form.Label>Title </Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter your visit title"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-            />
-          </Form.Group>
+    <main className="flex min-h-screen mt-14 sm:min-w-full">
+      <Sidebar />
 
-          <Form.Group controlId="city" className="col-md-6">
-            <Form.Label>City</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter city "
-              value={city}
-              onChange={(event) => setCity(event.target.value)}
-            />
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group controlId="address" className="col-md-6">
-            <Form.Label>Address</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter address "
-              value={address}
-              onChange={(event) => setAddress(event.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="distance" className="col-md-6">
-            <Form.Label>Distance</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter distance "
-              value={distance}
-              onChange={(event) => setDistance(event.target.value)}
-            />
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group controlId="photo" className="col-md-6">
-            <Form.Label>Image</Form.Label>
-            <Form.Control />
-            <input
-              as="file "
-              placeholder="Enter image "
-              type="file"
-              value={photo}
-              onChange={(event) => setPhoto(event.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="desc" className="col-md-6">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              as="textarea"
-              placeholder="Enter desc "
-              value={desc}
-              onChange={(event) => setDesc(event.target.value)}
-            />
-          </Form.Group>
-        </Row>
-        <Row>
-          <Form.Group controlId="price" className="col-md-6">
-            <Form.Label>Price</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter price "
-              value={price}
-              onChange={(event) => setPrice(event.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="maxGroupSize" className="col-md-6">
-            <Form.Label>MaxGroupSize</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter maxGroupSize "
-              value={maxGroupSize}
-              onChange={(event) => setMaxGroupSize(event.target.value)}
-            />
-          </Form.Group>
-        </Row>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-        <Button variant="contained" color="secondary" onClick={handleCancel}>
-          Cancel
-        </Button>
-      </Form>
-    </Container>
+      <div className="flex flex-col w-full gap-0 my-8">
+        <Container>
+          {/* <h2 style={{textalign:"center",marginTop:"100px"}}></h2> */}
+          <Form onSubmit={handleSubmit} style={{ marginLeft: 200 }}>
+            <h2 style={{ textalign: "center", marginTop: "-80px" }}>
+              Edit VISIT
+            </h2>
+            <Row>
+              <Form.Group controlId="title" className="col-md-6">
+                <Form.Label>Title </Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your visit title"
+                  value={title}
+                  onChange={(event) => setTitle(event.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="city" className="col-md-6">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter city "
+                  value={city}
+                  onChange={(event) => setCity(event.target.value)}
+                />
+              </Form.Group>
+            </Row>
+            <Row>
+              <Form.Group controlId="address" className="col-md-6">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter address "
+                  value={address}
+                  onChange={(event) => setAddress(event.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="distance" className="col-md-6">
+                <Form.Label>Distance</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter distance "
+                  value={distance}
+                  onChange={(event) => setDistance(event.target.value)}
+                />
+              </Form.Group>
+            </Row>
+            <Row>
+              <Form.Group controlId="photo" className="col-md-6">
+                <Form.Label>Image</Form.Label>
+                <Form.Control />
+                <input
+                  as="file "
+                  placeholder="Enter image "
+                  type="file"
+                  value={photo}
+                  onChange={(event) => setPhoto(event.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="desc" className="col-md-6">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  placeholder="Enter desc "
+                  value={desc}
+                  onChange={(event) => setDesc(event.target.value)}
+                />
+              </Form.Group>
+            </Row>
+            <Row>
+              <Form.Group controlId="price" className="col-md-6">
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter price "
+                  value={price}
+                  onChange={(event) => setPrice(event.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="maxGroupSize" className="col-md-6">
+                <Form.Label>MaxGroupSize</Form.Label>
+                <Form.Control
+                  type="number"
+                  placeholder="Enter maxGroupSize "
+                  value={maxGroupSize}
+                  onChange={(event) => setMaxGroupSize(event.target.value)}
+                />
+              </Form.Group>
+            </Row>{" "}
+            <div className="flex mt-5" style={{ marginLeft: 150 }}>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handleCancel}
+              >
+                Cancel
+              </Button>
+            </div>
+          </Form>
+        </Container>
+      </div>
+    </main>
   );
 }
 
